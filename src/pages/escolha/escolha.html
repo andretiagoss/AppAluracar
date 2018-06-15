@@ -1,0 +1,68 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>escolha</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let foto of carro.fotos">
+      <img src="{{foto}}" />
+    </ion-slide>
+  </ion-slides>
+
+  <!-- ion-item-group: é como se fosse uma DIV -->
+  <ion-item-group>
+    <!-- ion-item-divider: é um divisor que vai aparecer na tela -->
+    <ion-item-divider color="light">      
+      
+      <!-- é possivel determinar o icone de cada plataforma utilizando o prefixo "ios" para IOs e "md" para Android -->
+      <!-- <ion-icon ios="ios-car" md="md-car"></ion-icon> -->
+
+      <!-- é possivel utilizar apenas a opção "name" para que o proprio Ionic 
+        se encarregue de renderizar o icone para cada plataforma. -->
+      <ion-icon name="car"></ion-icon>
+      VEÍCULO
+    </ion-item-divider>
+    <ion-item>{{ carro.nome }}</ion-item>
+    <ion-item>R$ {{ carro.preco }}</ion-item> 
+  </ion-item-group>
+  
+  <ion-item-group>
+    <ion-item-divider color="light">      
+      <ion-icon name="options"></ion-icon>
+      ACESSÓRIOS
+    </ion-item-divider>
+    
+    <ion-item *ngFor="let acessorio of acessorios">
+      <ion-label>
+        <h2>{{ acessorio.nome }}</h2>
+        <h4>R$ {{ acessorio.preco }}</h4>
+      </ion-label>
+
+      <!-- ion-toggle = é um componente para exibir o checkbox caracteristico de cada plataforma -->
+      <ion-toggle #toogle color="secondary"
+        (ionChange)="atualizaTotal(toogle.checked, acessorio)"></ion-toggle>
+    </ion-item>
+
+  </ion-item-group>
+
+  <ion-item-divider color="light">
+    <span item-right>TOTAL: R$ {{ precoTotal }}</span>
+  </ion-item-divider>
+
+  <!-- Não foi utilizado o componente "button" pois ele some da tela em caso de uma lista grande na tela. -->
+  <!-- <button ion-button block>Avançar</button> -->
+
+  <!-- ion-fab: esse componente permite criar um button "flutuante" no canto superior direito da tela. -->
+  <ion-fab top right edge>
+    <button ion-fab (click)="avancaCadastro()">
+      <ion-icon name="arrow-dropright"></ion-icon>
+    </button>
+  </ion-fab>
+  
+</ion-content>

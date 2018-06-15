@@ -1,0 +1,22 @@
+page-perfil {
+    .avatar-wrapper {
+        position: relative;
+        width: 200px;
+        margin: auto;
+
+        ion-avatar img {
+            background-color: #DDDDDD;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+        }
+
+        .btn-tirar-foto {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 45px;
+            height: 45px;
+        }
+    }
+}

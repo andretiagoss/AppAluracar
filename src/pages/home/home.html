@@ -1,14 +1,35 @@
+<!-- ion-header = é o cabeçalho da aplicação. 
+  É um componente raiz e não pode estar dentro de outros componentes.  -->
 <ion-header>
+  <!-- ion-navbar = é o componente que define a barra de navegação da aplicação. 
+    Contem por exemplo o botão de voltar utilizado na plataforma IOS-->
   <ion-navbar>
+
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <!-- ion-title = é o componente que define o titulo da aplicação -->
     <ion-title>
-      Ionic Blank
+      Aluracar
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+<!-- ion-content = é o componente que define o conteudo do corpo da pagina. -->
+<!-- padding = é um atalho fornecido pelo Ionic para definir um espaçamento da pagina -->
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <!-- ion-list = é o componente gerador de lista do ionic. É equivalente ao "ul" do html, 
+    porém com uma cara nativa de listagem de cada plataforma. -->
+  <ion-list>
+    <!-- ion-item = é o componente do ionic correspondente ao item da lista criada. Equivalente ao "li" do html -->
+    <!-- Exemplo de lista com dados estaticos abaixo: -->
+    <!-- <ion-item>Brasília Amarela</ion-item>
+         <ion-item>Gol 1.0</ion-item> -->
+    
+    <!-- Lista com dados oriundos do modelo -->
+    <ion-item *ngFor="let carro of carros" (click)="selecionaCarro(carro);">
+      <h2>{{carro.nome}}</h2>
+      <p>R$ {{carro.preco}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

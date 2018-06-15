@@ -1,0 +1,27 @@
+<ion-content scroll="false">
+    <div class="splash-bg"></div>
+    <div class="splash-info">
+      <div class="splash-logo"></div>
+      <div class="splash-intro">
+        Aluracar
+      </div>
+    </div>
+    <div padding>
+
+      <form (ngSubmit)="efetuaLogin()">
+        <ion-item>
+          <!-- stacked = é utilizado para colocar a label acima do input -->
+          <ion-label stacked>Email</ion-label>
+          <ion-input [(ngModel)]="email" name="email" type="text"></ion-input>
+        </ion-item>
+    
+        <ion-item>      
+          <ion-label stacked>Senha</ion-label>
+          <ion-input [(ngModel)]="senha" name="senha" type="password"></ion-input>
+        </ion-item>
+    
+          <!-- block = indica que é para utilizar todo o espaço relatio ao botão  -->
+        <button ion-button block type="submit" class="login">ENTRAR</button>
+      </form>
+  </div>
+</ion-content>

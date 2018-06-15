@@ -1,1 +1,26 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-split-pane>
+    <!-- *ngIf="usuarioLogado" indica que o menu só vai aparecer se o usuário estiver logado -->
+    <ion-menu [content]="conteudo" *ngIf="usuarioLogado">
+        <ion-content>
+            <ion-item id="cabecalho-menu" class="cabecalho-menu">
+                <div>
+                    <ion-avatar item-start>
+                        <img [src]="avatar">
+                    </ion-avatar>
+                </div>
+                <h2>{{ usuarioLogado.nome }}</h2>
+                <p>{{ usuarioLogado.email }}</p>
+            </ion-item>
+
+            <ion-list>
+                <button ion-item menuClose *ngFor="let pagina of paginas"
+                    (click)="irParaPagina(pagina.componente)">
+    
+                    <ion-icon [name]="pagina.icone" item-left></ion-icon>
+                    {{ pagina.titulo }}
+                </button>
+            </ion-list>
+        </ion-content>            
+    </ion-menu>        
+    <ion-nav [root]="rootPage" main #conteudo swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>
