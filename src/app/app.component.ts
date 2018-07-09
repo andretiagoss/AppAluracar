@@ -47,7 +47,7 @@ export class MyApp {
         }
         
         this._onesignal
-            .startInit("c6e8cd7b-a09f-4f73-b2d3-7c036cd6d168", "439673484398")
+            .startInit("f74f11db-a9ab-466d-9cc1-eb6c8eb26347", "432215059857")                       
             .iOSSettings(iosConfigs);
                         
         //define como o app se comporta quando receber a notificação, vai receber mesmo que o app esteja aberto.
